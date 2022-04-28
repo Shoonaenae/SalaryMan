@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Salary Management Database</title>
+
+        <!--Header-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+        <!--CSS-->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/addemployer.css'%}">
+    </head>
+
+    <body>
+        <div class="page-content">
+          <div class="form-v4-content">
+              <div class="form-left">
+                  <img src="{% static 'images/addemployee.png' %}" alt="addemployee" style="margin-top:70px; margin-left: 40px;" alt="" width = "300" height = "300" >
+                  
+              </div>
+
+              <form class="form-detail" action="" method="POST" id="myform">
+                  {% csrf_token %}
+                  <h2>EMPLOYEE FORM</h2>
+
+                  <div class="form-group">
+                        <select class="form-control form-control-user" id="employerid" name="employerid"
+                        placeholder="Employer ID" required>
+                            <option disabled selected value>Employer</option>
+
+                            {% for e in employers %}
+                            <option value="{{e.employer_id}}">[{{e.employer_id}}] {{e.lastname}} {{e.firstname}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                  <div class="form-group">
+                      <div class="form-row form-row-1">
+                          <label for="first_name">First Name</label>
+                          <input type="text" name="firstname" id="first_name" class="input-text" required>
+                      </div>
+
+                      <div class="form-row form-row-1">
+                          <label for="last_name">Last Name</label>
+                          <input type="text" name="lastname" id="last_name" class="input-text" required>
+                      </div>
+                  </div>
+                    
+                  <div class="form-group">
+
+                      <div class="form-row form-row-1">
+                        <label for="age">Age</label>
+                        <input type="text" name="age" id="age" class="input-text" required>
+                      </div>
+
+                      <div class="form-row form-row-1">
+                        <label for="contact">Contact Number</label>
+                        <input type="text" name="contact" id="contact_number" class="input-text" required>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                        <select class="form-control form-control-user" id="City" name="city"
+                        placeholder="City" required>
+                            <option disabled selected value>City</option>
+
+                            {% for c in city %}
+                            <option value="{{c.city_id}}">{{c.city}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                  <div class="form-row-last">
+                      <button type="submit" class="register">
+                          SUBMIT
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+        <!--Add Record Ends Here-->
+
+      <!--Header starts here-->
+      <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="home">SALARY MAN</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="home">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="feature">Feature</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="aboutus">About Us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactus">Contact Us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="signin">Sign In</a></li>
+                </ul>
+                
+                <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
+            </div>
+        </div>
+      </nav>  
+    <!--Header Ends Here-->
+
+        <!--Footer Starts Here-->
+        <footer class="footer text-center">
+          <div class="container">
+              <div class="row">
+                  <!-- Footer Location-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">CSIT327 F1-C1</h4>
+                        <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye</small></p>
+                  </div>
+                  <!-- Footer Social Icons-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">Around the Web</h4>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                  </div>
+                  <!-- Footer About Text-->
+                  <div class="col-lg-4">
+                      <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                      <p class="lead mb-0">
+                          Freelance is a free to use, MIT licensed Bootstrap theme created by
+                          <a href="http://startbootstrap.com">Start Bootstrap</a>
+                          .
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+        <!--Footer Ends Here-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

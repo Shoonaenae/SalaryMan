@@ -1,0 +1,14 @@
+.data {
+    display: none;
+}
+
+select{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    border: 2px solid black;
+    appearance: none;
+}

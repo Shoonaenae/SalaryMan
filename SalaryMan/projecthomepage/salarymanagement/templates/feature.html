@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Salary Management Database</title>
+
+        <!--Header-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+
+        <!--     Fonts and icons     -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+        <!--CSS-->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/home.css'%}">
+        <link rel="stylesheet" href="{% static 'css/footer.css'%}">
+        <link rel="stylesheet" href="{% static 'css/features.css'%}">
+    </head>
+
+    <body>
+    <!-- ======= Features Section ======= -->
+    <header class="masthead bg-primary text-white text-left">
+        <section id="features" class="features">
+            <div class="container">
+    
+            <div class="section-title" data-aos="fade-up">
+                <h2>Features</h2>
+                <p>Check The Features</p>
+            </div>
+    
+            <div class="row" data-aos="fade-left">
+                <div class="col-lg-3 col-md-4">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+                    <span class="iconify" data-icon="ic:outline-manage-accounts" style="color: #ffbb2c" data-width="40" data-height="40"></span>
+                    <h3><a href="">Salary Tracking</a></h3>
+                </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="iconify" data-icon="ic:outline-calculate" data-width="40" data-height="40" style="color: #5578ff;"></span>
+                    <h3><a href="">Instant Calculation</a></h3>
+                </div>
+
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+                    <span class="iconify" data-icon="icon-park-outline:easy" data-width="40" data-height="40" style="color: #e80368;"></span>
+                    <h3><a href="">Easy Navigation</a></h3>
+                </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+                <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                    <span class="iconify" data-icon="bx:bxs-user-check" data-width="40" data-height="40" style="color: #e361ff;"></span>
+                    <h3><a href="">Free Trial</a></h3>
+                </div>
+                </div>
+              
+            </div>
+    
+            </div>
+        </section>
+      </header>
+      <!-- End Features Section -->  
+
+        <!--Header starts here-->
+      <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">SALARY MAN</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="home">Home</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="feature">Feature</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="aboutus">About Us</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="contactus">Contact Us</a></li>
+
+                    {% if user.is_authenticated %} <!--User is logged in-->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">{{user.last_name}}</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>    
+
+                    {% else %}
+
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="signin">Sign In</a></li>
+                </ul>
+                
+                <a class="btn btn-light action-button" role="button" href="signup">Sign Up</a>
+
+                {% endif %}
+            </div>
+        </div>
+      </nav>  
+    <!--Header Ends Here-->
+
+        <!--Footer Starts Here-->
+        <footer class="footer text-center">
+          <div class="container">
+              <div class="row">
+                  <!-- Footer Location-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">CSIT327 F1-C1</h4>
+                        <p class="mb-0"><small>&copy; 2021-2022 by Cuevas, Shanesha & Engbino, Kaye</small></p>
+                  </div>
+                  <!-- Footer Social Icons-->
+                  <div class="col-lg-4 mb-5 mb-lg-0">
+                      <h4 class="text-uppercase mb-4">Around the Web</h4>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                      <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+                  </div>
+
+                                      <!-- Footer About Text-->
+                                      <div class="col-lg-4">
+                                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                                        <p class="lead mb-0">
+                                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                                            .
+                                        </p>
+                                    </div>
+              </div>
+          </div>
+      </footer>
+        <!--Footer Ends Here-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/purecounter/purecounter.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+        <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    </body>
+</html>
